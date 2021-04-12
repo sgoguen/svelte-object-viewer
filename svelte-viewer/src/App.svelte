@@ -4,11 +4,12 @@
   export let name: string;
 
   const person = {
-    name: "Steve",
+    name: "Steveo",
     age: 27,
     todo: [
       { task: "Do this", priority: 2 },
       { task: "Do this", priority: 1 },
+      { task: "Do this", priority: 4 },
     ],
   };
 </script>
