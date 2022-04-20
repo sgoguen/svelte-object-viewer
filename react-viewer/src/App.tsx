@@ -1,17 +1,25 @@
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
+import { Viewer } from './Viewer';
+
+const person = {
+  name: "Steveo",
+  age: 27,
+  todo: [
+    { task: "Do this", priority: 2 },
+    { task: "Do this", priority: 1 },
+    { task: "Do this", priority: 5 },
+  ],
+};
 
 function App() {
   return (
     <Container>
       <Row>
-        <Col>1 of 2</Col>
-        <Col>2 of 2</Col>
-      </Row>
-      <Row>
-        <Col>1 of 3</Col>
-        <Col>2 of 3</Col>
-        <Col>3 of 3</Col>
+        <Col>
+          <Viewer value={person}></Viewer>
+        </Col>
       </Row>
     </Container>
   );
