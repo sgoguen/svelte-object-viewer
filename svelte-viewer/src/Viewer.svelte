@@ -1,5 +1,6 @@
 <script lang="ts">
 import { getRenderType, getKeyValues } from "./meta.svelte";
+import { Table } from 'sveltestrap';
 
 
   //   import { getRenderType } from "meta";
@@ -11,23 +12,11 @@ import { getRenderType, getKeyValues } from "./meta.svelte";
 
 </script>
 
-<style>
-  table.grid {
-    border-collapse: collapse;
-  }
-
-  table.grid th,
-  td {
-    border: 1px solid black;
-    padding: 0.5ex;
-  }
-</style>
-
 <!-- <div>{info.type}</div> -->
 {#if info.type === 'simple-value'}
   <div>{info.value}</div>
 {:else if info.type === 'object'}
-  <table class="grid">
+  <Table bordered striped size="sm">
     {#each getKeyValues(info.value) as { key, value }, i}
       <tr>
         <th>{key}</th>
@@ -36,9 +25,9 @@ import { getRenderType, getKeyValues } from "./meta.svelte";
         </td>
       </tr>
     {/each}
-  </table>
+  </Table>
 {:else if info.type === 'array'}
-  <table class="grid">
+  <Table bordered striped size="sm">
     {#if info.keys}
       <thead>
         <tr>
@@ -70,7 +59,7 @@ import { getRenderType, getKeyValues } from "./meta.svelte";
         {/each}
       {/if}
     </tbody>
-  </table>
+  </Table>
 {:else}
   <div>Unknown</div>
 {/if}
